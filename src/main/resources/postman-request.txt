@@ -1,0 +1,28 @@
+authorization-code get request
+http://localhost:8000/oauth2/authorize?response_type=code&client_id=my-client&redirect_uri=http://localhost:3000/callback&scope=read write
+authorization-code token request
+---------------------------------
+curl --location 'http://localhost:8000/oauth2/token' \
+--header 'Content-Type: application/x-www-form-urlencoded' \
+--header 'Authorization: Basic bXktY2xpZW50OnBhc3N3b3Jk' \
+--header 'Cookie: JSESSIONID=038B01C0EFD5429274B486F98D98645F' \
+--data-urlencode 'grant_type=authorization_code' \
+--data-urlencode 'code=6jKrA-jrnd1cL9F-qJLlucevBGcybssCC_DwkDLIPeKVJIQzVW1bkYpqlkkLCZ8zXEaqNkQlFwUIp4BzBmQ8a311HvWyOhHHWMhCGslANwP9j2PzfjBVerBnlULggzLr' \
+--data-urlencode 'redirect_uri=http://localhost:3000/callback'
+
+client credential token request
+---------------------------
+curl --location 'http://localhost:8000/oauth2/token' \
+--header 'Content-Type: application/x-www-form-urlencoded' \
+--header 'Authorization: Basic bXktY2xpZW50OnBhc3N3b3Jk' \
+--header 'Cookie: JSESSIONID=038B01C0EFD5429274B486F98D98645F' \
+--data-urlencode 'grant_type=client_credentials'
+
+refresh token -- token request
+-------------------------------
+curl --location 'http://localhost:8000/oauth2/token' \
+--header 'Content-Type: application/x-www-form-urlencoded' \
+--header 'Authorization: Basic bXktY2xpZW50OnBhc3N3b3Jk' \
+--header 'Cookie: JSESSIONID=038B01C0EFD5429274B486F98D98645F' \
+--data-urlencode 'grant_type=refresh_token' \
+--data-urlencode 'refresh_token=r52-uYKnnF5BPiuDmQL5HBZy3Z0T31d21kpwVGEbqHRlWT_LCyB3J4d0XeGGRsSoiFGHf8NnbdeyHyt_5DkmGoNSUvJTrfWWNVpSFonyW2CXDBLokFG4LZYGC0KDlKML'
